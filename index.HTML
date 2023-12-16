@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="../CSS/Portfolio_.CSS"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            margin: 0%;
+            padding: 0%;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.5);
+            position: sticky;
+            top: 0;
+        }
+
+        .navbar ul {
+            display: flex;
+            list-style: none;
+            margin: 20px 0px;
+        }
+
+        .navbar ul li {
+            font-family: century;
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: white;
+            padding: 8px 25px;
+            transition: all .5s ease;
+        }
+
+        .navbar ul li a:hover {
+            background-color: white;
+            color: black;
+            box-shadow: 0 0 10px white;
+        }
+
+        /* Home Section*/
+        #home {
+            display: flex;
+            flex-direction: column;
+            height: 840px;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        #home:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: url('./ales-nesetril-Im7lZjxeLhg-unsplash.jpg') no-repeat center center/cover;
+            height: 900px;
+            width: 100%;
+            z-index: -1;
+        }
+
+        .main {
+            display: flex;
+            flex-direction: column;
+            /* border: 1px solid white; */
+            align-items: center;
+            position: absolute;
+            top: 30%;
+            right: 10%;
+        }
+
+        .headings {
+            font-family: century;
+            font-size: 2.5rem;
+            text-align: center;
+        }
+
+        .btn {
+            padding: 10px 35px;
+            background-color: transparent;
+            border: 1px solid white;
+            color: white;
+            outline: none;
+            transition: .6s ease;
+        }
+
+        .btn:hover {
+            cursor: pointer;
+            background-color: white;
+            color: black;
+            box-shadow: 0 0 5px white, 0 0 5px white, 0 0 10px white;
+            font-weight: bold;
+        }
+
+        /* About Section*/
+        #about {
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
+            padding: 20px;
+            margin-bottom: 50px;
+        }
+
+        #pic {
+            display: flex;
+            padding-top: 20px;
+        }
+
+        #pic img {
+            width: 575px;
+            height: 400px;
+        }
+
+        #intro {
+            display: flex;
+            flex-direction: column;
+            text-align: justify;
+            padding: 30px;
+        }
+
+        #intro h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        /* Portfolio Section*/
+        #portfolio {
+            display: flex;
+            flex-direction: column;
+            background-color: rgba(0, 0, 0, 0.9);
+            color: white;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            box-sizing: border-box;
+            padding: 10px;
+        }
+
+        .gallery img {
+            width: 360px;
+            height: 240px;
+            margin: 30px;
+        }
+
+        /* Services Section */
+        #services {
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        .rows {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            box-sizing: border-box;
+        }
+
+        .box_ {
+            display: flex;
+            flex-direction: column;
+            width: 270px;
+            height: 270px;
+            border: 2px solid black;
+            margin: 20px;
+            align-items: center;
+            text-align: center;
+            padding: 30px;
+            border-radius: 15px;
+            background-color: steelblue;
+        }
+
+        .box_:hover {
+            background-color: steelblue;
+            color: black;
+            position: relative;
+            box-shadow: 0 0 10px black, 0 0 10px black, 0 0 10px black;
+        }
+
+        .heading:hover {
+            background-color: steelblue;
+            color: black;
+            position: relative;
+            box-shadow: 0 0 10px black, 0 0 10px black, 0 0 10px black;
+        }
+
+        /* Projects Section*/
+        #projects {
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.9);
+            color: white;
+        }
+
+        .project-container {
+            display: flex;
+            justify-content: space-around;
+            /* grid-template-columns: repeat(2, 1fr); */
+            /* grid-gap: 100px; */
+        }
+
+        .project-card {
+            height: 350px;
+            width: 300px;
+            margin: 15px 15px;
+            position: relative;
+        }
+
+        .project-img {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            object-fit: cover;
+            transition: .5s;
+        }
+
+        .project-content {
+            position: relative;
+            padding: 10px;
+            color: #fff;
+            transition: .5s;
+            /* opacity: 0; */
+        }
+
+        .project-title {
+            font-size: 40px;
+            text-transform: capitalize;
+            text-align: center;
+            font-weight: 300;
+        }
+
+        .project-info {
+            margin: 25px;
+            font-size: 20px;
+            line-height: 30px;
+            text-align: center;
+        }
+
+        .project-btn-grp {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 5px;
+            padding-left: 100px;
+        }
+
+        /* .project-btn-github,  */
+        .project-btn-live {
+            height: 40px;
+            text-transform: capitalize;
+            font-size: 18px;
+            border: none;
+            background: #000;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .project-btn-live {
+            background: none;
+            border: 2px solid #fff;
+        }
+
+        .project-card:hover .project-img {
+            filter: blur(10px);
+        }
+
+        /* .project-card:hover.project-content{
+    opacity: 1;
+} */
+
+
+        /* Skills Section */
+        /* .skills{
+    width: 50%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.lang{
+    margin: 25px;
+    border: 2px solid black;
+    border-radius: 10px;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} */
+
+        #skills {
+            position: relative;
+            margin: 20px 0;
+        }
+
+        .skills-container {
+            width: 70%;
+            margin: auto;
+            display: grid;
+            /* justify-content: space-evenly; */
+            grid-template-columns: auto auto auto;
+            grid-gap: 20px;
+            /* color: #fff; */
+        }
+
+        .skill-card {
+            position: relative;
+        }
+
+        .skill-img {
+            display: block;
+            margin: auto;
+            font-size: 100px;
+            height: 150px;
+        }
+
+        .skill-name {
+            font-size: 25px;
+            font-weight: 300;
+            text-align: center;
+            text-transform: capitalize;
+            margin: 4px 0 5px;
+        }
+
+        .skill-level {
+            position: absolute;
+            top: 80px;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 22px;
+            border-radius: 50%;
+            border: 8px solid;
+        }
+
+        .skill-card:nth-child(1) .skill-level {
+            background: #ff4f4f28;
+            border-color: #ff4f4f;
+            color: #ff4f4f;
+        }
+
+        .skill-card:nth-child(2) .skill-level {
+            background: #90c7c928;
+            border-color: #4fbeff;
+            color: #4fbeff;
+        }
+
+        .skill-card:nth-child(3) .skill-level {
+            background: #e9b0dd28;
+            border-color: #ff4ff0;
+            color: #ff4ff0;
+        }
+
+        .skill-card:nth-child(4) .skill-level {
+            background: #ffc0cb;
+            border-color: #fa8072;
+            color: #fa8072;
+        }
+
+        .skill-card:nth-child(5) .skill-level {
+            background: rgb(182, 247, 182);
+            border-color: darkgreen;
+            color: darkgreen;
+        }
+
+        .skill-card:nth-child(6) .skill-level {
+            background: rgb(207, 201, 243);
+            border-color: darkslateblue;
+            color: darkslateblue;
+        }
+
+        .skill-card:nth-child(7) .skill-level {
+            background: rgb(238, 200, 220);
+            border-color: deeppink;
+            color: deeppink;
+        }
+
+        .skill-card:nth-child(8) .skill-level {
+            background: rgb(239, 241, 236);
+            border-color: lawngreen;
+            color: lawngreen;
+        }
+
+        .skill-card:nth-child(9) .skill-level {
+            background: rgb(238, 197, 197);
+            border-color: red;
+            color: red;
+        }
+
+        /* Contact Section */
+        #contact {
+            display: flex;
+            justify-content: space-evenly;
+            /* flex-direction: column; */
+            box-sizing: border-box;
+            background-color: rgba(0, 0, 0, 0.9);
+            color: white;
+            padding: 20px;
+
+
+            /* display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 50px;
+    top: 0;
+    position: relative;
+    transition: 1s;
+    padding: 100px 150px;
+    height: 100vh; */
+        }
+
+        .form {
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
+            /* align-items: center; */
+            margin: 20px 0px;
+        }
+
+        .input {
+            padding: 12px;
+            margin: 15px;
+            /* width: 30%; */
+            border: none;
+            outline: none;
+        }
+
+        #msg {
+            width: 90%;
+            padding: 10px;
+            margin: 15px;
+            border: none;
+            outline: none;
+        }
+
+        #send {
+            padding: 10px;
+            width: 30%;
+            margin: auto;
+            border: none;
+            outline: none;
+
+        }
+
+        #send:hover {
+            cursor: pointer;
+            box-shadow: 0 0 10px white;
+        }
+
+        .map {
+            /* width: 100%;
+    height: 100%; */
+            padding: 10px;
+            border: 2px solid #fff;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+        }
+
+        .map iframe {
+            /* width: 100%;
+    height: 100%; */
+            border-radius: 5px;
+        }
+
+
+        @media screen and (max-width:800px) {
+            .navbar ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            /* Headings */
+            .heading {
+                font-size: 2.5rem;
+            }
+
+            /* About */
+            #pic {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            #pic img {
+                width: 475px;
+                height: 300px;
+            }
+
+            #intro h2 {
+                text-align: center;
+                padding: 10px;
+            }
+
+            /* Contact */
+            .input {
+                width: 60%;
+            }
+
+            #msg {
+                width: 55%;
+            }
+
+            #send {
+                width: 20%;
+            }
+        }
+
+        @media screen and (max-width:530px) {
+
+            /* Home */
+            #home {
+                height: 820px;
+            }
+
+            .headings {
+                font-size: 1.7rem;
+            }
+
+            /* About */
+            #pic img {
+                width: 300px;
+                height: 175px;
+            }
+
+            #intro h2 {
+                font-size: 1.5rem;
+            }
+
+            /* Portfolio */
+            .gallery img {
+                width: 250px;
+                height: 150px;
+                margin: 10px;
+            }
+
+            /* Contact */
+            .input {
+                width: 80%;
+            }
+
+            #msg {
+                width: 70%;
+            }
+
+            #send {
+                width: 20%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <section id="home">
+        <div class="main">
+            <h1 class="headings">I AM <br> FALGUNI SURYAVANSHI</h1>
+            <button class="btn">
+                Hire Me
+            </button>
+        </div>
+    </section>
+    <section id="about">
+        <h1 class="headings">ABOUT ME</h1>
+        <div id="pic">
+            <img src="./ales-nesetril-Im7lZjxeLhg-unsplash.jpg" alt="">
+            <div id="intro">
+                <h2>FALGUNI SURYAVANSHI</h2>
+                <p>Ability to design clean and clear interface using various Front End
+                    Development tools. Having good understanding of Project
+                    Management with strong analytical skills to work indepedently
+                    on given problem.</p>
+            </div>
+        </div>
+    </section>
+    <section id="portfolio">
+        <h1 class="headings">PORTFOLIO</h1>
+        <div class="gallery">
+            <img src="https://encrypted-tbn0.gstatic.com?q=tbn:ANd9GcRfSiM7xKi-vhnjapP3fPH0p2hUMEd1eG5i6Q&usqp=CAU"
+                alt="">
+            <img src="https://encrypted-tbn0.gstatic.com?q=tbn:ANd9GcTFQwCdB0TiPurojVO8xxUlBvPgl3u6qlKXvA&usqp=CAU"
+                alt="">
+            <img src="https://encrypted-tbn0.gstatic.com?q=tbn:ANd9GcSOcMYee197JNyOv5ExdXsXWKNsRdTEkt0p1A&usqp=CAU"
+                alt="">
+            <img src="https://encrypted-tbn0.gstatic.com?q=tbn:ANd9GcRnhsYe3SJRtPYXyZOcULFtWy9Q3ybahI1Seg&usqp=CAU"
+                alt="">
+            <img src="https://encrypted-tbn0.gstatic.com?q=tbn:ANd9GcSME1iFztcxNIQJL9mM_0srnmHmVakcsDwZIg&usqp=CAU&reload=on"
+                alt="">
+            <img src="https://encrypted-tbn0.gstatic.com?q=tbn:ANd9GcRn-QC-l7hn3wKU5MKPWwPKA4Gj5kuYXEaC7w&usqp=CAU"
+                alt="">
+        </div>
+    </section>
+    <section id="services">
+        <h1 class="headings">SERVICES</h1>
+        <div class="rows">
+            <div class="box_">
+                <h1 class="heading">Website Design</h1><br>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint est, officia eligendi pariatur illo
+                    inventore. Asperiores dignissimos quae libero quisquam?</p>
+            </div>
+            <div class="box_">
+                <h1 class="heading">Web Developement</h1><br>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint est, officia eligendi pariatur illo
+                    inventore. Asperiores dignissimos quae libero quisquam?</p>
+            </div>
+            <div class="box_">
+                <h1 class="heading">Web Freelancer</h1><br>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint est, officia eligendi pariatur illo
+                    inventore. Asperiores dignissimos quae libero quisquam?</p>
+            </div>
+        </div>
+    </section>
+    <!-- <section id="projects">
+        <h1 class="headings">PROJECTS</h1>
+        <div class="row">
+            <div class="box" id="box1">
+                <h1 class="headings">First</h1>
+                <a href="Portfolio_.HTML" target="_blank"><img
+                        src="C:\Users\Sevesh\Pictures\Screenshots\Screenshot (7).png" height="250px" width="250px;"
+                        alt=""></a>
+            </div>
+            <div class="box" id="box2">
+                <h1 class="headings">Second</h1>
+                <a href="../HTML/Bootstrap.HTML" target="_blank"><img
+                        src="C:\Users\Sevesh\Pictures\Screenshots\Screenshot (9).png" height="250px" width="250px;"
+                        alt=""></a>
+            </div>
+            <div class="box" id="box3">
+                <h1 class="headings">Third</h1>
+                <a href="../HTML/Assi-1.HTML" target="_blank"><img
+                        src="C:\Users\Sevesh\Pictures\Screenshots\Screenshot (10).png" height="250px" width="250px;"
+                        alt=""></a>
+            </div>
+        </div>
+    </section> -->
+
+    <section id="projects">
+        <h1 class="headings">PROJECTS</h1>
+        <div class="project-container">
+            <div class="project-card">
+                <img src="./01.webp" class="project-img" alt="">
+                <div class="project-content">
+                    <h1 class="project-title">Project 01</h1>
+                    <p class="project-info">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum obcaecati, corporis voluptates non
+                        magnam natus exercitationem quod quo nesciunt eum.
+                    </p>
+                    <div class="project-btn-grp">
+                        <!-- <button class="project-btn-github">github repo</button> -->
+                        <button class="project-btn-live">see live</button>
+                        <!-- file:///D:/Falguni/HTML/Portfolio_.HTML#skills -->
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="./02.jpg" class="project-img" alt="">
+                <div class="project-content">
+                    <h1 class="project-title">Project 02</h1>
+                    <p class="project-info">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum obcaecati, corporis voluptates non
+                        magnam natus exercitationem quod quo nesciunt eum.
+                    </p>
+                    <div class="project-btn-grp">
+                        <!-- <button class="project-btn-github">github repo</button> -->
+                        <button class="project-btn-live">see live</button>
+                        <!-- "file:///D:/Falguni/HTML/Assi-1.HTML" -->
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="./03.jpg" class="project-img" alt="">
+                <div class="project-content">
+                    <h1 class="project-title">Project 03</h1>
+                    <p class="project-info">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum obcaecati, corporis voluptates non
+                        magnam natus exercitationem quod quo nesciunt eum.
+                    </p>
+                    <div class="project-btn-grp">
+                        <!-- <button class="project-btn-github">github repo</button> -->
+                        <button class="project-btn-live">see live</button>
+                        <!-- C:\Users\Sevesh\Pictures\Screenshots\Screenshot (9).png -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h1 class="headings">SKILLS</h1>
+        <div class="skills-container">
+            <div class="skill-card">
+                <div class="skill-img"><i class="fa-brands fa-html5"></i></div>
+                <div class="skill-level">75%</div>
+                <div class="skill-name">Html</div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-img"><i class="fa-brands fa-css3-alt"></i></div>
+                <div class="skill-level">75%</div>
+                <div class="skill-name">CSS</div>
+
+            </div>
+            <div class="skill-card">
+                <div class="skill-img"><i class="fa-brands fa-js"></i></div>
+                <div class="skill-level">75%</div>
+                <div class="skill-name">Javascript</div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-img"><i class="fa-brands fa-angular"></i></div>
+                <div class="skill-level">75%</div>
+                <div class="skill-name">Angular></div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-img"><img
+                        src="https://encrypted-tbn0.gstatic.com?q=tbn:ANd9GcQLGuieHplON_f6ul13ls1ilFMePabs44KF_A&usqp=CAU"
+                        alt="" width="100px" height="100px"></div>
+                <div class="skill-level">75%</div>
+                <div class="skill-name">MongoDB</div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-img"><i class="fa-brands fa-node-js"></i></div>
+                <div class="skill-level">75%</div>
+                <div class="skill-name">Node Js</div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-img"><img
+                        src="https://cdn-peanutsquare.b-cdn.net/wp-content/uploads/2022/11/js-format.png" alt=""
+                        width="100px" height="100px"></div>
+                <div class="skill-level">75%</div>
+                <div class="skill-level">75%</div>
+                <div class="skill-name">Express Js</div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-img"><img
+                        src="https://www.pngitem.com/pimgs/m/387-3872412_logo-mysql-database-mysql-svg-png-icon-download.png"
+                        alt="" width="100px" height="100px"></div>
+                <div class="skill-level">75%</div>
+                <div class="skill-name">MySQL</div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-img"><i class="fa-brands fa-python"></i></div>
+                <div class="skill-level">75%</div>
+                <div class="skill-name">Python</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h1 class="headings">CONTACT</h1>
+        <form action="" class="form">
+            <input type="text" name="name" class="input" placeholder="Enter Your Name">
+            <input type="email" name="email" class="input" placeholder="Enter Your Email">
+            <textarea name="msg" id="msg" cols="30" rows="10" placeholder="Enter Your Message"></textarea>
+            <input type="Submit" value="SEND" id="send">
+        </form>
+        <div class="map">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d60189.36762246532!2d72.76373729903503!3d19.462658975187708!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7aa23dce7efbf%3A0x99bd87871748d8f4!2sVirar%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1688576704129!5m2!1sen!2sin"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </section>
+    <script src="./Portfolio_.js"></script>
+</body>
+
+</html>
